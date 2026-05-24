@@ -35,6 +35,11 @@ SAFEHAT PRO is an ESP32-based smart safety helmet system (MYOSA Mini Kit) design
 
 **What problem it solves:** Delayed emergency response in workplace accidents. The system automatically detects falls, monitors for confined-space entry, and enables manual SOS signaling — reducing response time and potentially saving lives.
 
+<video controls width="100%">
+  <source src="SAFEHAT-PRO/demo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 ---
 
 ## Demo / Examples
@@ -66,14 +71,9 @@ SAFEHAT PRO is an ESP32-based smart safety helmet system (MYOSA Mini Kit) design
   <i>Close-up angled view of the assembled SAFEHAT PRO prototype.</i>
 </p>
 
-### Videos
-
-<video controls width="100%">
-  <source src="SAFEHAT-PRO/demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
 ---
+
+
 
 ## Features (Detailed)
 
