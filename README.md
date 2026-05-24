@@ -25,7 +25,7 @@ This project was developed as an open-source safety innovation. Special thanks t
 
 ## Overview
 
-SAFEHAT PRO is an Arduino-based smart safety helmet system designed to enhance worker safety in industrial and confined-space environments. It integrates multiple sensors for real-time hazard detection — including falls, atmospheric pressure anomalies, proximity threats, and emergency signaling — with on-helmet visual feedback via an OLED display.
+SAFEHAT PRO is an ESP32-based smart safety helmet system (MYOSA Mini Kit) designed to enhance worker safety in industrial and confined-space environments. It integrates multiple sensors for real-time hazard detection — including falls, atmospheric pressure anomalies, proximity threats, and emergency signaling — with on-helmet visual feedback via an OLED display.
 
 **What it does:** Continuously monitors a worker's environment and motion to detect falls, confined space entry, nearby hazards, and emergency tap patterns.
 
@@ -43,7 +43,7 @@ SAFEHAT PRO is an Arduino-based smart safety helmet system designed to enhance w
 
 <p align="center">
   <img src="/assets/images/SAFEHAT-PRO/circuit.jpg" width="800"><br/>
-  <i>Full circuit schematic including power regulation, I²C bus pull-up resistors, and sensor interconnects.</i>
+  <i>Reference circuit schematic for the Arduino Nano platform (legacy). The MYOSA Mini Kit uses ESP32 with the same I²C sensor topology.</i>
 </p>
 
 <p align="center">
@@ -189,3 +189,4 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 ## Contribution Notes
 
 Contributions, issues, and feature requests are welcome. Feel free to open an issue or submit a pull request. For major changes, please open an issue first to discuss what you would like to change.
+
