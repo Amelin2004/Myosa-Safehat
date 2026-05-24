@@ -1,10 +1,12 @@
 ---
 publishDate: 2026-05-24T00:00:00Z
-title: SAFEHAT PRO — Smart Safety Hat
-excerpt: An Arduino-based smart safety helmet that detects falls, confined spaces, and proximity hazards with real-time OLED feedback and emergency SOS signaling.
+title: SAFEHAT PRO — Smart Safety Hat (MYOSA Mini Kit)
+excerpt: An ESP32-based smart safety helmet that detects falls, confined spaces, and proximity hazards with real-time OLED feedback and emergency SOS signaling.
 image: SAFEHAT-PRO/cover.jpg
 tags:
   - arduino
+  - esp32
+  - myosa
   - safety
   - wearable
   - iot
@@ -27,7 +29,7 @@ SAFEHAT PRO is an Arduino-based smart safety helmet system designed to enhance w
 
 **What it does:** Continuously monitors a worker's environment and motion to detect falls, confined space entry, nearby hazards, and emergency tap patterns.
 
-**How it works:** An Arduino Nano reads data from an MPU6500 accelerometer/gyroscope, BMP180 barometric pressure sensor, and APDS9930 proximity/ambient light sensor. On-board logic evaluates sensor fusion data to identify safety events and displays alerts on an SH1106 OLED.
+**How it works:** An ESP32 reads data from an MPU6050 accelerometer/gyroscope, BMP180 barometric pressure sensor, and APDS9960 proximity/ambient light/gesture sensor. On-board logic evaluates sensor fusion data to identify safety events and displays alerts on an SSD1306 OLED with an audible buzzer alarm.
 
 **Who it is for:** Construction workers, industrial site personnel, confined-space workers, and lone workers who need an extra layer of safety monitoring.
 
@@ -42,21 +44,6 @@ SAFEHAT PRO is an Arduino-based smart safety helmet system designed to enhance w
 <p align="center">
   <img src="/assets/images/SAFEHAT-PRO/circuit.jpg" width="800"><br/>
   <i>Full circuit schematic including power regulation, I²C bus pull-up resistors, and sensor interconnects.</i>
-</p>
-
-<p align="center">
-  <img src="/assets/images/SAFEHAT-PRO/wiring.jpg" width="800"><br/>
-  <i>Wiring connections between the Arduino Nano and all sensor modules.</i>
-</p>
-
-<p align="center">
-  <img src="/assets/images/SAFEHAT-PRO/components.jpg" width="800"><br/>
-  <i>All hardware components used in the SAFEHAT PRO build.</i>
-</p>
-
-<p align="center">
-  <img src="/assets/images/SAFEHAT-PRO/prototype.jpg" width="800"><br/>
-  <i>Assembled prototype mounted on a hard hat shell.</i>
 </p>
 
 <p align="center">
@@ -92,7 +79,7 @@ SAFEHAT PRO is an Arduino-based smart safety helmet system designed to enhance w
 
 ### 1. Fall Detection
 
-The MPU6500 accelerometer continuously measures acceleration magnitude. When the magnitude drops below 0.3 G, a freefall state is flagged. If a subsequent impact spike above 2.5 G is detected, the system transitions to an impact state. After impact, if no significant gyroscope movement is detected for 10 seconds, an unconscious worker alert (SOS) is triggered.
+The MPU6050 accelerometer continuously measures acceleration magnitude. When the magnitude drops below 0.3 G, a freefall state is flagged. If a subsequent impact spike above 2.5 G is detected, the system transitions to an impact state. After impact, if no significant gyroscope movement is detected for 10 seconds, an unconscious worker alert (SOS) is triggered.
 
 ### 2. Confined Space Detection
 
@@ -104,17 +91,17 @@ The accelerometer detects rapid tap gestures. Three taps within 2 seconds are in
 
 ### 4. Proximity Warning
 
-The APDS9930 proximity sensor continuously scans for nearby objects. When an object approaches within the configured threshold, a warning is displayed on the OLED and logged over serial — alerting the worker to potential collision or intrusion hazards.
+The APDS9960 proximity sensor continuously scans for nearby objects. When an object approaches within the configured threshold, a warning is displayed on the OLED and logged over serial — alerting the worker to potential collision or intrusion hazards.
 
 ### 5. OLED Status Display
 
-The SH1106 128×64 OLED provides real-time status messages, sensor readings, and alert notifications directly on the helmet, keeping the worker informed without requiring external displays or devices.
+The SSD1306 128×64 OLED provides real-time status messages, sensor readings, and alert notifications directly on the helmet, keeping the worker informed without requiring external displays or devices.
 
 ---
 
 ## Usage Instructions
 
-1. Power the system using a 5V USB power bank or battery pack connected to the Arduino Nano.
+1. Power the system using a 5V USB power bank or battery pack connected to the ESP32.
 2. On startup, the OLED displays "SAFEHAT PRO" followed by "SYSTEM READY — Monitoring..." once all sensors are initialized.
 3. Wear the helmet normally. The system monitors continuously in the background.
 4. If a fall occurs, the system automatically detects freefall → impact → potential unconsciousness and triggers an SOS alert on the OLED.
@@ -126,11 +113,11 @@ The SH1106 128×64 OLED provides real-time status messages, sensor readings, and
 
 ## Tech Stack
 
-- **Microcontroller:** Arduino Nano (ATmega328P)
-- **Motion Sensing:** MPU6500 accelerometer + gyroscope (I²C)
+- **Microcontroller:** ESP32 (MYOSA Mini Kit)
+- **Motion Sensing:** MPU6050 accelerometer + gyroscope (I²C)
 - **Pressure Sensing:** BMP180 barometric pressure / temperature sensor (I²C)
-- **Proximity / Light:** APDS9930 digital proximity and ambient light sensor (I²C)
-- **Display:** SH1106 128×64 monochrome OLED (I²C)
+- **Proximity / Light:** APDS9960 digital proximity, ambient light, and gesture sensor (I²C)
+- **Display:** SSD1306 128×64 monochrome OLED (I²C)
 - **Communication:** I²C (Wire library) for all sensor interconnects
 - **Programming Language:** C++ (Arduino Framework)
 
@@ -142,11 +129,12 @@ The SH1106 128×64 OLED provides real-time status messages, sensor readings, and
 
 | Component | Quantity |
 |---|---|
-| Arduino Nano (or compatible) | 1 |
-| MPU6500 Accelerometer / Gyroscope | 1 |
+| MYOSA Mini Kit (ESP32) | 1 |
+| MPU6050 Accelerometer / Gyroscope | 1 |
 | BMP180 Barometric Pressure Sensor | 1 |
-| APDS9930 Proximity / Ambient Light Sensor | 1 |
-| SH1106 128×64 OLED Display | 1 |
+| APDS9960 Proximity / Ambient Light / Gesture Sensor | 1 |
+| SSD1306 128×64 OLED Display | 1 |
+| Buzzer | 1 |
 | Breadboard | 1 |
 | Jumper Wires (M-M, M-F) | 1 set |
 | 5V Power Supply (USB or battery pack) | 1 |
@@ -155,19 +143,21 @@ The SH1106 128×64 OLED provides real-time status messages, sensor readings, and
 
 - Arduino IDE (v1.8.x or v2.x)
 - Required libraries (install via Arduino Library Manager):
-  - `MPU6500_WE` by Wolfgang Ewald
   - `Adafruit BMP085` by Adafruit
-  - `Adafruit SH110X` by Adafruit
+  - `Adafruit APDS9960` by Adafruit
+  - `Adafruit SSD1306` by Adafruit
   - `Adafruit GFX` by Adafruit
+  - `MPU6050_light` by ejoyneering
 
 ### Installation
 
 1. Clone or download this repository.
 2. Open `Myosa.ino` in the Arduino IDE.
-3. Install the required libraries via **Tools → Manage Libraries**.
-4. Connect the Arduino Nano to your computer via USB.
-5. Select the correct board and port under **Tools → Board** and **Tools → Port**.
-6. Click **Upload** to flash the firmware.
+3. Install ESP32 board support via **Tools → Board → Boards Manager** (search for "ESP32").
+4. Install the required libraries via **Tools → Manage Libraries**.
+5. Connect the MYOSA Mini Kit (ESP32) to your computer via USB.
+6. Select **ESP32 Dev Module** under **Tools → Board → ESP32 Arduino** and the correct port.
+7. Click **Upload** to flash the firmware.
 
 ---
 
@@ -181,9 +171,6 @@ Myosa-Safehat/
 └── SAFEHAT-PRO/               # Project media assets
     ├── cover.jpg              # Cover image
     ├── circuit.jpg            # Circuit schematic
-    ├── wiring.jpg             # Wiring diagram
-    ├── components.jpg         # Hardware components
-    ├── prototype.jpg          # Assembled prototype
     ├── fall-detection.jpg     # Fall detection OLED display
     ├── morse-sos.jpg          # Morse tap SOS alert
     ├── hat-on-user.jpg        # Hat worn by user
