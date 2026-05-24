@@ -42,34 +42,34 @@ SAFEHAT PRO is an ESP32-based smart safety helmet system (MYOSA Mini Kit) design
 ### Images
 
 <p align="center">
-  <img src="/assets/images/SAFEHAT-PRO/circuit.jpg" width="800"><br/>
+  <img src="SAFEHAT-PRO/circuit.jpg" width="800"><br/>
   <i>Full circuit schematic of the ESP32 (MYOSA Mini Kit) including power regulation, I²C bus pull-up resistors, and sensor interconnects.</i>
 </p>
 
 <p align="center">
-  <img src="/assets/images/SAFEHAT-PRO/fall-detection.jpg" width="800"><br/>
+  <img src="SAFEHAT-PRO/fall-detection.jpg" width="800"><br/>
   <i>OLED display showing fall detection alert during freefall and impact events.</i>
 </p>
 
 <p align="center">
-  <img src="/assets/images/SAFEHAT-PRO/morse-sos.jpg" width="800"><br/>
+  <img src="SAFEHAT-PRO/morse-sos.jpg" width="800"><br/>
   <i>Morse tap SOS detection — three taps within 2 seconds trigger an emergency alert.</i>
 </p>
 
 <p align="center">
-  <img src="/assets/images/SAFEHAT-PRO/hat-on-user.jpg" width="800"><br/>
+  <img src="SAFEHAT-PRO/hat-on-user.jpg" width="800"><br/>
   <i>SAFEHAT PRO system worn by a user on a hard hat shell.</i>
 </p>
 
 <p align="center">
-  <img src="/assets/images/SAFEHAT-PRO/hat-prototype.jpg" width="800"><br/>
+  <img src="SAFEHAT-PRO/hat-prototype.jpg" width="800"><br/>
   <i>Close-up angled view of the assembled SAFEHAT PRO prototype.</i>
 </p>
 
 ### Videos
 
 <video controls width="100%">
-  <source src="/assets/images/SAFEHAT-PRO/demo.mp4" type="video/mp4">
+  <source src="SAFEHAT-PRO/demo.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -189,5 +189,6 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 ## Contribution Notes
 
 Contributions, issues, and feature requests are welcome. Feel free to open an issue or submit a pull request. For major changes, please open an issue first to discuss what you would like to change.
+
 
 
