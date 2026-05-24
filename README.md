@@ -59,6 +59,26 @@ SAFEHAT PRO is an Arduino-based smart safety helmet system designed to enhance w
   <i>Assembled prototype mounted on a hard hat shell.</i>
 </p>
 
+<p align="center">
+  <img src="/assets/images/SAFEHAT-PRO/fall-detection.jpg" width="800"><br/>
+  <i>OLED display showing fall detection alert during freefall and impact events.</i>
+</p>
+
+<p align="center">
+  <img src="/assets/images/SAFEHAT-PRO/morse-sos.jpg" width="800"><br/>
+  <i>Morse tap SOS detection — three taps within 2 seconds trigger an emergency alert.</i>
+</p>
+
+<p align="center">
+  <img src="/assets/images/SAFEHAT-PRO/hat-on-user.jpg" width="800"><br/>
+  <i>SAFEHAT PRO system worn by a user on a hard hat shell.</i>
+</p>
+
+<p align="center">
+  <img src="/assets/images/SAFEHAT-PRO/hat-prototype.jpg" width="800"><br/>
+  <i>Close-up angled view of the assembled SAFEHAT PRO prototype.</i>
+</p>
+
 ### Videos
 
 <video controls width="100%">
@@ -164,7 +184,10 @@ Myosa-Safehat/
     ├── wiring.jpg             # Wiring diagram
     ├── components.jpg         # Hardware components
     ├── prototype.jpg          # Assembled prototype
-    └── ...                     # Additional images
+    ├── fall-detection.jpg     # Fall detection OLED display
+    ├── morse-sos.jpg          # Morse tap SOS alert
+    ├── hat-on-user.jpg        # Hat worn by user
+    └── hat-prototype.jpg      # Assembled prototype close-up
 ├── demo-landscape.mp4          # Demo video (landscape)
 ```
 
