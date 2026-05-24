@@ -82,7 +82,7 @@ SAFEHAT PRO is an Arduino-based smart safety helmet system designed to enhance w
 ### Videos
 
 <video controls width="100%">
-  <source src="/demo-landscape.mp4" type="video/mp4">
+  <source src="/assets/images/SAFEHAT-PRO/demo.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -187,8 +187,8 @@ Myosa-Safehat/
     ├── fall-detection.jpg     # Fall detection OLED display
     ├── morse-sos.jpg          # Morse tap SOS alert
     ├── hat-on-user.jpg        # Hat worn by user
-    └── hat-prototype.jpg      # Assembled prototype close-up
-├── demo-landscape.mp4          # Demo video (landscape)
+    ├── hat-prototype.jpg      # Assembled prototype close-up
+    └── demo.mp4               # Demo video
 ```
 
 ---
